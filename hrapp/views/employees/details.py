@@ -13,13 +13,13 @@ def get_employee(employee_id):
 
         db_cursor.execute("""
         SELECT
-            e.id,
+            e.id as employee_id,
             e.first_name,
             e.last_name,
-            e.department_id
+            e.department_id,
+            d.name department_name
         FROM hrapp_employee e
-        JOIN hrapp_department d ON e.department_id = d.id
-        WHERE e.id = ?
+        JOIN hrapp_department d ON e.department_id = d.id        WHERE e.id = ?
         """, (employee_id,))
 
         return db_cursor.fetchone()
