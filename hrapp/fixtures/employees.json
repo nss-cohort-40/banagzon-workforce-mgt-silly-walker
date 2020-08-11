@@ -1,0 +1,34 @@
+[
+  {
+    "model": "hrapp.employee",
+    "pk": 1,
+    "fields": {
+      "first_name": "John",
+      "last_name": "Jinglehimmer-Schmidt",
+      "start_date": "2020-11-23",
+      "department": 1,
+      "is_supervisor": true
+    }
+  },
+  {
+    "model": "hrapp.employee",
+    "pk": 2,
+    "fields": {
+      "first_name": "Nancy",
+      "last_name": "Knowitall",
+      "start_date": "2019-04-05",
+      "department": 2,
+      "is_supervisor": false
+    }
+  },
+  {
+    "model": "hrapp.employee",
+    "pk": 3,
+    "fields": {
+      "first_name": "Greg",
+      "last_name": "Fancypants",
+      "start_date": "2018-12-31",
+      "is_supervisor": false
+    }
+  }
+]

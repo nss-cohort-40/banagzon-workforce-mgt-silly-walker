@@ -1,0 +1,26 @@
+[
+  {
+    "model": "hrapp.department",
+    "pk": 1,
+    "fields": {
+      "name": "Sanitation",
+      "budget": 1000000000.5
+    }
+  },
+  {
+    "model": "hrapp.department",
+    "pk": 2,
+    "fields": {
+      "name": "Wine",
+      "budget": 32000.25
+    }
+  },
+  {
+    "model": "hrapp.department",
+    "pk": 3,
+    "fields": {
+      "name": "Cheese Makers",
+      "budget": 2450.33
+    }
+  }
+]

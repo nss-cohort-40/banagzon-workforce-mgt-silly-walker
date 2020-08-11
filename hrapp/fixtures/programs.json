@@ -1,0 +1,32 @@
+[
+  {
+    "model": "hrapp.program",
+    "pk": 1,
+    "fields": {
+      "title": "how to clean a privy",
+      "start_date": "2020-11-23",
+      "end_date": "2020-11-26",
+      "capacity": 1
+    }
+  },
+  {
+    "model": "hrapp.program",
+    "pk": 2,
+    "fields": {
+      "title": "Getting Wine Crunk 101",
+      "start_date": "2021-05-29",
+      "end_date": "2021-05-30",
+      "capacity": 4400
+    }
+  },
+  {
+    "model": "hrapp.program",
+    "pk": 3,
+    "fields": {
+      "title": "Making your cheese not smell",
+      "start_date": "2020-02-11",
+      "end_date": "2020-02-09",
+      "capacity": 400
+    }
+  }
+]
