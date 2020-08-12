@@ -6,7 +6,7 @@
       "employee": 1,
       "computer": 1,
       "assign_date": "2019-05-30",
-      "unassign_date": "Null"
+      "unassign_date": "2025-05-30"
     }
   },
   {
@@ -16,7 +16,7 @@
       "employee": 2,
       "computer": 2,
       "assign_date": "2015-04-06",
-      "unassign_date": "Null"
+      "unassign_date": "2021-04-06"
     }
   },
   {
@@ -26,7 +26,7 @@
       "employee": 3,
       "computer": 3,
       "assign_date": "2016-01-08",
-      "unassign_date": "Null"
+      "unassign_date": "2022-01-08"
     }
   }
 ]
