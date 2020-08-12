@@ -24,8 +24,8 @@
     "pk": 3,
     "fields": {
       "title": "Making your cheese not smell",
-      "start_date": "2020-02-11",
-      "end_date": "2020-02-09",
+      "start_date": "2020-02-09",
+      "end_date": "2020-02-11",
       "capacity": 400
     }
   }
