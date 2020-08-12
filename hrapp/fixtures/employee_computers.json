@@ -1,0 +1,32 @@
+[
+  {
+    "model": "hrapp.employeecomputer",
+    "pk": 1,
+    "fields": {
+      "employee": 1,
+      "computer": 1,
+      "assign_date": "2019-05-30",
+      "unassign_date": "Null"
+    }
+  },
+  {
+    "model": "hrapp.employeecomputer",
+    "pk": 2,
+    "fields": {
+      "employee": 2,
+      "computer": 2,
+      "assign_date": "2015-04-06",
+      "unassign_date": "Null"
+    }
+  },
+  {
+    "model": "hrapp.employeecomputer",
+    "pk": 3,
+    "fields": {
+      "employee": 3,
+      "computer": 3,
+      "assign_date": "2016-01-08",
+      "unassign_date": "Null"
+    }
+  }
+]
