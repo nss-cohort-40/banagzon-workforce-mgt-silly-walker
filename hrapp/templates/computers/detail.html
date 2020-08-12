@@ -1,7 +1,7 @@
 {% extends 'shared/base.html' %}
 {% block content %}
         <section id="computer-details">
-            <h1>{{ computer.make }}</h1>
+            <h1>{{ computer.make }} {{ computer.model }}</h1>
 
             <div>Purchase Date: {{ computer.purchase_date }}</div>
             <div>Decommission Date: {{ computer.decommission_date }}</div>

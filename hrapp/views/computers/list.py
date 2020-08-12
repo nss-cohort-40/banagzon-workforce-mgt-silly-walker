@@ -1,5 +1,5 @@
 import sqlite3
-from django.shortcuts import render
+from django.shortcuts import render, redirect, reverse
 from hrapp.models import Computer
 from ..connection import Connection
 
@@ -14,6 +14,7 @@ def computer_list(request):
             select
                 c.id,
                 c.make,
+                c.model,
                 c.purchase_date,
                 c.decommission_date
             from hrapp_computer c
@@ -26,14 +27,35 @@ def computer_list(request):
                 computer = Computer()
                 computer.id = row['id']
                 computer.make = row['make']
+                computer.model = row['model']
                 computer.purchase_date = row['purchase_date']
                 computer.decommission_date = row['decommission_date']
 
                 all_computers.append(computer)
 
-    template = 'computers/computer_list.html'
-    context = {
-        'computers': all_computers
-    }
+        template = 'computers/list.html'
+        context = {
+            'computers': all_computers
+        }
 
-    return render(request, template, context)
+        return render(request, template, context)
+
+    elif request.method == 'POST':
+        form_data = request.POST
+
+        with sqlite3.connect(Connection.db_path) as conn:
+            db_cursor = conn.cursor()
+
+            db_cursor.execute("""
+            INSERT INTO hrapp_computer
+            (
+                make, model, purchase_date
+            )
+            VALUES (?, ?, ?)
+            """,
+                              (form_data['make'],
+                               form_data['model'],
+                               form_data['purchase_date'])
+                              )
+
+        return redirect(reverse('hrapp:computer_list'))

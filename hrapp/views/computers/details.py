@@ -13,6 +13,7 @@ def get_computer(computer_id):
         SELECT
             c.id,
             c.make,
+            c.model,
             c.purchase_date,
             c.decommission_date
         FROM hrapp_computer c
