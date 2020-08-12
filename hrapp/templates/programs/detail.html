@@ -1,0 +1,21 @@
+{% extends 'shared/base.html' %} {% block content %}
+
+<section id="program-details">
+  <h1>{{ program.title }}</h1>
+  <div>Start Date: {{program.start_date}}</div>
+  <div>End Date: {{program.end_date}}</div>
+  <div>Available Seats: {{program.capacity}}</div>
+</section>
+
+<form action="{% url 'hrapp:program_details' program.id %}" method="POST">
+  {% csrf_token %}
+  <input type="hidden" name="actual_method" value="DELETE" />
+  <button>Delete</button>
+</form>
+
+<form action="{% url 'hrapp:program_edit_form' program.id %}" method="GET">
+  {% csrf_token %}
+  <button>Edit</button>
+</form>
+
+{% endblock %}
