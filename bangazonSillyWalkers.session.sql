@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 DELETE 
 FROM hrapp_computer;
 
@@ -14,7 +12,6 @@ select
   c.decommission_date
 from hrapp_computer c;
 
->>>>>>> master
 CREATE TABLE "hrapp_employee_training_program" (
 	"id" INTEGER NOT NULL PRIMARY KEY,
   "employee_id" INTEGER NOT NULL,
