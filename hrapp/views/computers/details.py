@@ -15,8 +15,10 @@ def get_computer(computer_id):
             c.make,
             c.model,
             c.purchase_date,
-            c.decommission_date
+            c.decommission_date,
+            ec.employee_id emp_id
         FROM hrapp_computer c
+        LEFT JOIN hrapp_employeecomputer ec on c.id = ec.computer_id
         WHERE c.id = ?
         """, (computer_id,))
 
