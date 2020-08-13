@@ -32,8 +32,14 @@ select
   p.end_date,
   p.capacity,
   p.start_date
-<<<<<<< HEAD
-from hrapp_program p
-=======
 from hrapp_program p;
->>>>>>> master
+
+SELECT
+  c.id,
+  c.make,
+  c.model,
+  c.purchase_date,
+  c.decommission_date
+FROM hrapp_computer c
+  JOIN
+  WHERE c .id = 2;
