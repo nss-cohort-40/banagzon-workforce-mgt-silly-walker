@@ -1,32 +1,47 @@
 
-SELECT
-  e.id as employee_id,
-  e.first_name,
-  e.last_name,
-  e.department_id,
-  d.name department_name,
-  c.make as computer_make
-FROM hrapp_employee e
-  JOIN hrapp_department d ON e.department_id = d.id
-  JOIN hrapp_employeecomputer ec ON e.id = ec.employee_id
-  JOIN hrapp_computer c ON ec.computer_id = c.id;
+CREATE TABLE "hrapp_employee_training_program" (
+	"id" INTEGER NOT NULL PRIMARY KEY,
+  "employee_id" INTEGER NOT NULL,
+  "trainingprogram_id" INTEGER NOT NULL,
+    FOREIGN KEY (`employee_id`) REFERENCES "hrapp_employee"
+(`Id`),
+    FOREIGN KEY
+(`trainingprogram_id`) REFERENCES "hrapp_program"
+(`Id`)
+);
 
-DROP TABLE hrapp_employeecomputer;
+
+INSERT INTO hrapp_employee_training_program
+  (employee_id, trainingprogram_id)
+VALUES
+  (1, 1);
+
+INSERT INTO hrapp_employee_training_program
+  (employee_id, trainingprogram_id)
+VALUES
+  (2, 2);
+
+INSERT INTO hrapp_employee_training_program
+  (employee_id, trainingprogram_id)
+VALUES
+  (3, 3);
+
+INSERT INTO hrapp_employee_training_program
+  (employee_id, trainingprogram_id)
+VALUES
+  (1, 2);
+
+INSERT INTO hrapp_employee_training_program
+  (employee_id, trainingprogram_id)
+VALUES
+  (2, 2);
+
 
 select
-  p.id program_id,
-  p.title,
-  p.end_date,
-  p.capacity,
-  p.start_date
+  p.id ProgramId,
+  p.title ProgramName,
+  emp.first_name,
+  emp.last_name
 from hrapp_program p
-WHERE p.start_date >= "2020-08-11";
-
-select
-  p.id program_id,
-  p.title,
-  p.end_date,
-  p.capacity,
-  p.start_date
-from hrapp_program p
-from hrapp_program p;
+  join hrapp_employee_training_program tp on tp.trainingprogram_id = p.id
+  join hrapp_employee emp on tp.employee_id = emp.id 
