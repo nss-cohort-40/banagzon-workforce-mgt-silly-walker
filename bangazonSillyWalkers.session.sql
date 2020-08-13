@@ -1,21 +1,49 @@
+CREATE TABLE "hrapp_employee_training_program" (
+	"id" INTEGER NOT NULL PRIMARY KEY,
+  "employee_id" INTEGER NOT NULL,
+  "trainingprogram_id" INTEGER NOT NULL,
+    FOREIGN KEY (`employee_id`) REFERENCES "hrapp_employee"
+(`Id`),
+    FOREIGN KEY
+(`trainingprogram_id`) REFERENCES "hrapp_program"
+(`Id`)
+);
 
- select d.id,
-      d.name,
-      d.budget, 
-      COUNT(e.id) as employee_count
-  from hrapp_department d  
-      LEFT JOIN hrapp_employee e ON d.id = e.department_id
-  GROUP BY d.name;
 
-DROP TABLE hrapp_employeecomputer;
+INSERT INTO hrapp_employee_training_program
+  (employee_id, trainingprogram_id)
+VALUES
+  (1, 1);
+
+INSERT INTO hrapp_employee_training_program
+  (employee_id, trainingprogram_id)
+VALUES
+  (2, 2);
+
+INSERT INTO hrapp_employee_training_program
+  (employee_id, trainingprogram_id)
+VALUES
+  (3, 3);
+
+INSERT INTO hrapp_employee_training_program
+  (employee_id, trainingprogram_id)
+VALUES
+  (1, 2);
+
+INSERT INTO hrapp_employee_training_program
+  (employee_id, trainingprogram_id)
+VALUES
+  (2, 2);
+
 
 select
-  p.id program_id,
-  p.title,
-  p.end_date,
-  p.capacity,
-  p.start_date
-from hrapp_program p;
+  p.id ProgramId,
+  p.title ProgramName,
+  emp.first_name,
+  emp.last_name
+from hrapp_program p
+  join hrapp_employee_training_program tp on tp.trainingprogram_id = p.id
+  join hrapp_employee emp on tp.employee_id = emp.id 
 
 select 
   d.id,
@@ -26,4 +54,5 @@ select
   e.department_id
 
 from hrapp_employee e  
-JOIN hrapp_department d ON e.department_id = d.id
+JOIN hrapp_department  ON e.department_id = d.id
+GROUP BY e.last_name;
