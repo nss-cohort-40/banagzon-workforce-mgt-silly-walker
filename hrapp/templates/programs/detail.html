@@ -5,6 +5,12 @@
   <div>Start Date: {{program.start_date}}</div>
   <div>End Date: {{program.end_date}}</div>
   <div>Available Seats: {{program.capacity}}</div>
+  <h3>Attendees</h3>
+  <ol>
+    {% for employee in program.employees %}
+    <li>{{ employee.first_name }} {{ employee.last_name }}</li>
+    {% endfor %}
+  </ol>
 </section>
 
 <form action="{% url 'hrapp:program_details' program.id %}" method="POST">

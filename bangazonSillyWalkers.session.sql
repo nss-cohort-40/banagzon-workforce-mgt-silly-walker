@@ -47,7 +47,7 @@ VALUES
 
 
 select
-  p.id,
+  p.id program_id,
   p.title,
   p.end_date,
   p.capacity,
@@ -58,4 +58,4 @@ select
 from hrapp_program p
   LEFT join hrapp_employee_training_program tp on tp.trainingprogram_id = p.id
   LEFT join hrapp_employee emp on tp.employee_id = emp.id
-WHERE p.start_date <= "2020-08-11"
+WHERE p.id = 7
