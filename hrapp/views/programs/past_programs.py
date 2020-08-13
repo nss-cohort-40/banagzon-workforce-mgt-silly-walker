@@ -21,9 +21,6 @@ def create_past_program(cursor, row):
     employee.first_name = _row["first_name"]
     employee.last_name = _row["last_name"]
 
-    # Return a tuple containing the library and the
-    # book built from the data in the current row of
-    # the data set
     return (program, employee,)
 
 
@@ -44,8 +41,8 @@ def past_program_list(request):
                 emp.first_name,
                 emp.last_name
             from hrapp_program p
-                join hrapp_employee_training_program tp on tp.trainingprogram_id = p.id
-                join hrapp_employee emp on tp.employee_id = emp.id 
+                LEFT join hrapp_employee_training_program tp on tp.trainingprogram_id = p.id
+                LEFT join hrapp_employee emp on tp.employee_id = emp.id 
             WHERE p.start_date <= "2020-08-11"
             """)
 
@@ -57,7 +54,8 @@ def past_program_list(request):
 
             if program.id not in program_groups:
                 program_groups[program.id] = program
-                program_groups[program.id].employees.append(employee)
+                if (employee.id is not None):
+                    program_groups[program.id].employees.append(employee)
 
             else:
                 program_groups[program.id].employees.append(employee)

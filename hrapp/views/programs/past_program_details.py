@@ -21,8 +21,8 @@ def get_program_employees(program_id):
             emp.first_name,
             emp.last_name
         from hrapp_program p
-            join hrapp_employee_training_program tp on tp.trainingprogram_id = p.id
-            join hrapp_employee emp on tp.employee_id = emp.id;
+            LEFT join hrapp_employee_training_program tp on tp.trainingprogram_id = p.id
+            LEFT join hrapp_employee emp on tp.employee_id = emp.id;
         """, (program_id,))
 
         return db_cursor.fetchone()

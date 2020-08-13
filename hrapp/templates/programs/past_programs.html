@@ -6,12 +6,15 @@
   <li class="past_program">
     <h2>{{ program.title }}</h2>
     <div>
-      Employees Attended:
+      {% if program.employees %} Employees Attended:
       <ol>
         {% for employee in program.employees %}
         <li>{{ employee.first_name }} {{ employee.last_name }}</li>
         {% endfor %}
       </ol>
+      {% else %}
+      <h4>no attendees</h4>
+      {% endif %}
     </div>
   </li>
   {% endfor %}
