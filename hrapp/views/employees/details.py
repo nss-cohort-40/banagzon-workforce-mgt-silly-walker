@@ -19,14 +19,33 @@ def get_employee(employee_id):
             e.department_id,
             d.name department_name,
             c.make as computer_make,
-            c.model as computer_model
+            c.model as computer_model,
+            p.title as program_title
         FROM hrapp_employee e
-        JOIN hrapp_department d ON e.department_id = d.id
-        JOIN hrapp_employeecomputer ec ON e.id = ec.employee_id
-        JOIN hrapp_computer c ON ec.computer_id = c.id
-        WHERE e.id = ?
+            LEFT JOIN hrapp_department d ON e.department_id = d.id
+            LEFT JOIN hrapp_employeecomputer ec ON e.id = ec.employee_id
+            LEFT JOIN hrapp_computer c ON ec.computer_id = c.id
+            LEFT JOIN hrapp_employee_training_program etp ON e.id = etp.employee_id
+            LEFT JOIN hrapp_program p ON etp.trainingprogram_id = p.id
+            WHERE e.id = ?
         """, (employee_id,))
 
+        employee_with_programs = {}
+        dataset = db_cursor.fetchall()
+
+        for row in dataset:
+            employee = Employee()
+            employee.id = row['employee_id']
+            employee.first_name = row['first_name']
+            employee.last_name = row['last_name']
+            employee.department_id = row['department_id']
+            employee.department_name = row['department_name']
+            employee.computer_make = row['computer_make']
+            employee.computer_model = row['computer_model']
+            employee.program_title = row['program_title']
+
+            employee_programs.append(employee.program_title)
+            print("Testing employee program", employee_programs)
         return db_cursor.fetchone()
 
 

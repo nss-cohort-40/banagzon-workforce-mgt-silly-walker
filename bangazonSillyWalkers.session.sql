@@ -85,3 +85,19 @@ SELECT
 from hrapp_program p
   join hrapp_employee_training_program tp on tp.trainingprogram_id = p.id
   join hrapp_employee emp on tp.employee_id = emp.id;
+
+SELECT
+  e.id as employee_id,
+  e.first_name,
+  e.last_name,
+  e.department_id,
+  d.name department_name,
+  c.make as computer_make,
+  c.model as computer_model,
+  p.title as program_title
+FROM hrapp_employee e
+  LEFT JOIN hrapp_department d ON e.department_id = d.id
+  LEFT JOIN hrapp_employeecomputer ec ON e.id = ec.employee_id
+  LEFT JOIN hrapp_computer c ON ec.computer_id = c.id
+  LEFT JOIN hrapp_employee_training_program etp ON e.id = etp.employee_id
+  LEFT JOIN hrapp_program p ON etp.trainingprogram_id = p.id;
