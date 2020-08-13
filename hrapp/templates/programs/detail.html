@@ -6,9 +6,6 @@
   <div>End Date: {{program.end_date}}</div>
   <div>Available Seats: {{program.capacity}}</div>
 </section>
-<div>
-  Attendees: {{program.first_name}}
-</div>
 
 <form action="{% url 'hrapp:program_details' program.id %}" method="POST">
   {% csrf_token %}

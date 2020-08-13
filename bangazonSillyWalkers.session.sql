@@ -146,4 +146,17 @@ select
   e.department_id
 
 FROM hrapp_department d
-  LEFT JOIN hrapp_employee e ON  e.department_id = d.id 
+  LEFT JOIN hrapp_employee e ON  e.department_id = d.id;
+
+select
+  p.id,
+  p.title,
+  p.end_date,
+  p.capacity,
+  p.start_date,
+  emp.id EmployeeId,
+  emp.first_name,
+  emp.last_name
+from hrapp_program p
+  join hrapp_employee_training_program tp on tp.trainingprogram_id = p.id
+  join hrapp_employee emp on tp.employee_id = emp.id

@@ -8,7 +8,9 @@
     <div>
       Employees Attended:
       <ol>
-        {{ program.first_name }} {{ program.last_name }}
+        {% for employee in program.employees %}
+        <li>{{ employee.first_name }} {{ employee.last_name }}</li>
+        {% endfor %}
       </ol>
     </div>
   </li>
