@@ -18,7 +18,8 @@ def get_employee(employee_id):
             e.last_name,
             e.department_id,
             d.name department_name,
-            c.make as computer_make
+            c.make as computer_make,
+            c.model as computer_model
         FROM hrapp_employee e
         JOIN hrapp_department d ON e.department_id = d.id
         JOIN hrapp_employeecomputer ec ON e.id = ec.employee_id
