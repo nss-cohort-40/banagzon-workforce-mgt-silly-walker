@@ -1,0 +1,15 @@
+{% extends 'shared/base.html' %}
+
+{% block content %}
+<h1>Departments: {{ department.name }}</h1>
+<ol>
+{% for department in departments %}
+    <li>
+        <a href="{% url 'hrapp:department' department.id %}">
+        <p>{{ department.name }}</a></p>
+        <p>${{ department.budget }}</p>
+        <p>Number of employees in department: {{ department.employee_count }}</p>
+    </li>
+{% endfor %}
+</ol>
+{% endblock content %}
