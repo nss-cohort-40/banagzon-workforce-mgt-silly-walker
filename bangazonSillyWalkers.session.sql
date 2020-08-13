@@ -1,6 +1,9 @@
 DELETE 
 FROM hrapp_computer;
 
+DELETE 
+FROM hrapp_employeecomputer;
+
 select
   c.id,
   c.make,
