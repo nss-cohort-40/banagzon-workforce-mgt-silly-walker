@@ -10,16 +10,14 @@ def get_department(department_id):
 
         db_cursor.execute("""
         select 
-            d.id,
             d.name,
             d.budget, 
             e.first_name,
             e.last_name, 
             e.department_id
-
-        FROM hrapp_employee e  
-        JOIN hrapp_department d ON e.department_id = ?
-        """, (department_id,))
+        FROM hrapp_department d 
+        LEFT JOIN hrapp_employee e ON e.department_id = ?
+                """, (department_id,))
 
         return db_cursor.fetchone()
 

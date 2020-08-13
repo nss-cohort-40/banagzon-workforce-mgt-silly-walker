@@ -97,3 +97,13 @@ from hrapp_employee e
 JOIN hrapp_department  ON e.department_id = d.id
 GROUP BY e.last_name;
   join hrapp_employee emp on tp.employee_id = emp.id;
+
+select 
+        d.name,
+        d.budget, 
+        e.first_name,
+        e.last_name, 
+        e.department_id
+
+FROM hrapp_department d 
+LEFT JOIN hrapp_employee e ON  e.department_id = d.id 
