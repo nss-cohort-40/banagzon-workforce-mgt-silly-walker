@@ -21,7 +21,7 @@ def get_department(department_id):
         JOIN hrapp_department d ON e.department_id = ?
         """, (department_id,))
 
-        return db_cursor.fetchall()
+        return db_cursor.fetchone()
 
 def department_details(request, department_id):
     if request.method == 'GET':
@@ -32,6 +32,6 @@ def department_details(request, department_id):
             'department': department,
         }
 
-    return render(request, template, context)
+        return render(request, template, context)
 
     
