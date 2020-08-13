@@ -1,13 +1,14 @@
 
-CREATE TABLE "hrapp_employee_training_program" (
-	"id" INTEGER NOT NULL PRIMARY KEY,
+CREATE TABLE "hrapp_employee_training_program"
+(
+  "id" INTEGER NOT NULL PRIMARY KEY,
   "employee_id" INTEGER NOT NULL,
   "trainingprogram_id" INTEGER NOT NULL,
-    FOREIGN KEY (`employee_id`) REFERENCES "hrapp_employee"
-(`Id`),
-    FOREIGN KEY
-(`trainingprogram_id`) REFERENCES "hrapp_program"
-(`Id`)
+  FOREIGN KEY ("employee_id") REFERENCES "hrapp_employee"
+("Id"),
+  FOREIGN KEY
+("trainingprogram_id") REFERENCES "hrapp_program"
+("Id")
 );
 
 
