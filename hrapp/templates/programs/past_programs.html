@@ -4,7 +4,13 @@
 <ol class="past_programs">
   {% for program in programs %}
   <li class="past_program">
-    {{ program.title }}
+    <h2>{{ program.title }}</h2>
+    <div>
+      Employees Attended:
+      <ol>
+        {{ program.first_name }} {{ program.last_name }}
+      </ol>
+    </div>
   </li>
   {% endfor %}
 </ol>

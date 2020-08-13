@@ -50,6 +50,16 @@ VALUES
   (2, 2);
 
 
+INSERT INTO hrapp_employee_training_program
+  (employee_id, trainingprogram_id)
+VALUES
+  (2, 1);
+INSERT INTO hrapp_employee_training_program
+  (employee_id, trainingprogram_id)
+VALUES
+  (3, 1);
+
+
 select
   p.id,
   p.title,
