@@ -83,4 +83,27 @@ SELECT
   emp.last_name
 from hrapp_program p
   join hrapp_employee_training_program tp on tp.trainingprogram_id = p.id
+  join hrapp_employee emp on tp.employee_id = emp.id 
+
+select 
+  d.id,
+  d.name,
+  d.budget, 
+  e.first_name,
+  e.last_name, 
+  e.department_id
+
+from hrapp_employee e  
+JOIN hrapp_department  ON e.department_id = d.id
+GROUP BY e.last_name;
   join hrapp_employee emp on tp.employee_id = emp.id;
+
+select 
+        d.name,
+        d.budget, 
+        e.first_name,
+        e.last_name, 
+        e.department_id
+
+FROM hrapp_department d 
+LEFT JOIN hrapp_employee e ON  e.department_id = d.id 
