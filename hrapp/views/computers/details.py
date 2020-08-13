@@ -36,7 +36,7 @@ def computer_details(request, computer_id):
 
     if request.method == 'POST':
         form_data = request.POST
-        print(form_data)
+        print('form_data', form_data)
 
         if (
             "actual_method" in form_data
