@@ -107,4 +107,26 @@ select
   e.department_id
 
 FROM hrapp_department d
-  LEFT JOIN hrapp_employee e ON  e.department_id = d.id 
+  LEFT JOIN hrapp_employee e ON  e.department_id = d.id;
+
+
+SELECT
+  e.id as employee_id,
+  e.first_name,
+  e.last_name,
+  e.department_id,
+  d.name department_name,
+  c.make as computer_make,
+  c.model as computer_model,
+  p.title as program_title
+FROM hrapp_employee e
+  LEFT JOIN hrapp_department d ON e.department_id = d.id
+  LEFT JOIN hrapp_employeecomputer ec ON e.id = ec.employee_id
+  LEFT JOIN hrapp_computer c ON ec.computer_id = c.id
+  LEFT JOIN hrapp_employee_training_program etp ON e.id = etp.employee_id
+  LEFT JOIN hrapp_program p ON etp.trainingprogram_id = p.id
+  WHERE e.id = 1;
+
+
+INSERT INTO hrapp_employee
+VALUES (NULL, "Bob", "Joe", 2020-05-06, 0, 2);

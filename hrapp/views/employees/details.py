@@ -30,23 +30,21 @@ def get_employee(employee_id):
             WHERE e.id = ?
         """, (employee_id,))
 
-        employee_with_programs = {}
         dataset = db_cursor.fetchall()
 
+        employee = Employee()
+        employee.id = dataset[0]['employee_id']
+        employee.first_name = dataset[0]['first_name']
+        employee.last_name = dataset[0]['last_name']
+        employee.department_id = dataset[0]['department_id']
+        employee.department_name = dataset[0]['department_name']
+        employee.computer_make = dataset[0]['computer_make']
+        employee.computer_model = dataset[0]['computer_model']
+        employee.programs = []
         for row in dataset:
-            employee = Employee()
-            employee.id = row['employee_id']
-            employee.first_name = row['first_name']
-            employee.last_name = row['last_name']
-            employee.department_id = row['department_id']
-            employee.department_name = row['department_name']
-            employee.computer_make = row['computer_make']
-            employee.computer_model = row['computer_model']
-            employee.program_title = row['program_title']
+            employee.programs.append(row['program_title'])
 
-            employee_programs.append(employee.program_title)
-            print("Testing employee program", employee_programs)
-        return db_cursor.fetchone()
+        return employee
 
 
 @login_required
