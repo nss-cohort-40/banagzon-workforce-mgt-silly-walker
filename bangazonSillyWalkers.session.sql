@@ -39,7 +39,15 @@ SELECT
   c.make,
   c.model,
   c.purchase_date,
-  c.decommission_date
+  c.decommission_date,
+  ec.employee_id emp_id
 FROM hrapp_computer c
-  JOIN
-  WHERE c .id = 2;
+  LEFT JOIN hrapp_employeecomputer ec ON c.id = ec.computer_id
+WHERE c .id = 4;
+
+INSERT INTO hrapp_employeecomputer
+VALUES
+  (null, 2, 1, "2020-08-11", "None");
+
+DELETE FROM hrapp_employeecomputer
+WHERE id = 4;
