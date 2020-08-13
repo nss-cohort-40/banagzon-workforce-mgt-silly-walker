@@ -36,11 +36,9 @@ def computer_details(request, computer_id):
 
     if request.method == 'POST':
         form_data = request.POST
-        print('form_data', form_data)
-
         if (
             "actual_method" in form_data
-            and form_data["actual_method"] == ["DELETE"]
+            and form_data["actual_method"] == "DELETE"
         ):
             with sqlite3.connect(Connection.db_path) as conn:
                 db_cursor = conn.cursor()
