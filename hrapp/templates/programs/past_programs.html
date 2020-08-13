@@ -4,12 +4,7 @@
 <ol class="past_programs">
   {% for program in programs %}
   <li class="past_program">
-    <a
-      class="program__title"
-      href="{% url 'hrapp:program_details' program.id %}"
-    >
-      {{ program.title }}
-    </a>
+    {{ program.title }}
   </li>
   {% endfor %}
 </ol>
