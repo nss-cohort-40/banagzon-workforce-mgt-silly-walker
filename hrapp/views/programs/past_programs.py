@@ -5,7 +5,7 @@ from ..connection import Connection
 from datetime import date
 
 
-def program_list(request):
+def past_program_list(request):
     if request.method == 'GET':
         with sqlite3.connect(Connection.db_path) as conn:
             conn.row_factory = sqlite3.Row
@@ -19,7 +19,7 @@ def program_list(request):
                 p.capacity,
                 p.start_date
             from hrapp_program p
-            WHERE p.start_date >= "2020-08-11"
+            WHERE p.start_date <= "2020-08-11"
             """)
 
             all_programs = []
@@ -35,27 +35,9 @@ def program_list(request):
 
                 all_programs.append(program)
 
-        template = 'programs/programs_list.html'
+        template = 'programs/past_programs.html'
         context = {
             'programs': all_programs
         }
 
         return render(request, template, context)
-
-    elif request.method == 'POST':
-        form_data = request.POST
-
-        with sqlite3.connect(Connection.db_path) as conn:
-            db_cursor = conn.cursor()
-
-            db_cursor.execute("""
-            INSERT INTO hrapp_program
-            (
-                title, start_date, end_date,
-                capacity
-            )
-            VALUES (?, ?, ?, ?)
-            """,
-                              (form_data['title'], form_data['start_date'], form_data['end_date'], form_data['capacity']))
-
-        return redirect(reverse('hrapp:program_list'))
