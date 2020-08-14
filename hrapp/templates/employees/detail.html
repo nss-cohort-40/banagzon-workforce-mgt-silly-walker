@@ -7,7 +7,9 @@
     <h4>Computer: {{ employee.computer_make }} {{ employee.computer_model }}</h4>
     <h4>Training Programs: </h4>
     {% for program in employee.programs %}
-      <h3>{{ program }}</h3>
+      <ul>
+        <li>{{ program }}</li>
+      </ul>
     {% endfor %}
   </body>
 {% endblock %}
