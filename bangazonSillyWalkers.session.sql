@@ -46,10 +46,8 @@ VALUES
   (3, 1);
 
 
-<<<<<<< HEAD
 
 
-=======
 select
   p.id,
   p.title,
@@ -77,4 +75,3 @@ FROM hrapp_computer c
 SELECT
   u.is_superuser
 FROM auth_user u;
->>>>>>> master

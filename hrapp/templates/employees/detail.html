@@ -6,9 +6,18 @@
     <h4>Department: {{employee.department_name}}</h4>
     <h4>Computer: {{ employee.computer_make }} {{ employee.computer_model }}
 
-    <form action="{% url 'hrapp:employees_form' employee.employee_id %}" method="GET">
+   
+    <h4>Computer: {{ employee.computer_make }} {{ employee.computer_model }}</h4>
+    <h4>Training Programs: </h4>
+    {% for program in employee.programs %}
+      <ul>
+        <li>{{ program }}</li>
+      </ul>
+    {% endfor %}
+
+     {% comment %} <form action="{% url 'hrapp:employees_form' employee.employee_id %}" method="GET">
     {% csrf_token %}
       <button>Edit</button>
-    </form>
+    </form> {% endcomment %}
   </body>
 {% endblock %}
