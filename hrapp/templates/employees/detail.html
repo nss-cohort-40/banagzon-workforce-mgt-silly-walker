@@ -5,5 +5,10 @@
     <h2>{{ employee.first_name }} {{ employee.last_name }}</h2>
     <h4>Department: {{employee.department_name}}</h4>
     <h4>Computer: {{ employee.computer_make }} {{ employee.computer_model }}
+
+    <form action="{% url 'hrapp:employees_form' employee.employee_id %}" method="GET">
+    {% csrf_token %}
+      <button>Edit</button>
+    </form>
   </body>
 {% endblock %}

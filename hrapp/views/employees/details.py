@@ -41,3 +41,4 @@ def employee_details(request, employee_id):
         }
 
         return render(request, template, context)
+    
