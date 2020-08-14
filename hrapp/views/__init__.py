@@ -11,5 +11,6 @@ from .programs.program_list import program_list
 from .programs.form import program_edit_form, program_form
 from .programs.details import program_details
 from .programs.past_programs import past_program_list
+from .employees.employees_form import employee_form, employee_edit_form
 from .programs.past_program_details import get_program_employees
 from .auth.login import login
