@@ -1,9 +1,9 @@
-{% extends 'shared/base.html' %}
-
-{% block content %}
-  
+{% extends 'shared/base.html' %} {% block content %}
+<section class="list-group">
+  <div class="list-group-item">
     <h3>Department: {{ department.name }}</h3>
 
-    <p>Budget: ${{ department.budget }} </p>
-
+    <p>Budget: ${{ department.budget }}</p>
+  </div>
+</section>
 {% endblock content %}

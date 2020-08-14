@@ -7,11 +7,11 @@
   {% else %}
   <form action="{% url 'hrapp:program_list' %}" method="post">
     {% endif %} {% csrf_token %}
-    <fieldset>
+    <fieldset class="form-group">
       <label for="title">Title: </label>
       <input id="title" type="text" name="title" value="{{ program.title }}" />
     </fieldset>
-    <fieldset>
+    <fieldset class="form-group">
       <label for="start_date">Start Date: </label>
       <input
         id="start_date"
@@ -20,7 +20,7 @@
         value="{{ program.start_date }}"
       />
     </fieldset>
-    <fieldset>
+    <fieldset class="form-group">
       <label for="end_date">End Date: </label>
       <input
         id="end_date"
@@ -29,7 +29,7 @@
         value="{{ program.end_date }}"
       />
     </fieldset>
-    <fieldset>
+    <fieldset class="form-group">
       <label for="capacity">Capacity: </label>
       <input
         id="capacity"

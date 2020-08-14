@@ -1,12 +1,26 @@
 {% extends 'shared/base.html' %} {% block content %}
 <h1>Training Programs</h1>
 {% if request.user.is_superuser %}
-<a href="{% url 'hrapp:program_form' %}">Create New Program</a>
+<a
+  button
+  type="button"
+  class="btn btn-success"
+  href="{% url 'hrapp:program_form' %}"
+>
+  Create New Program
+</a>
+<a
+  button
+  type="button"
+  class="btn btn-outline-danger"
+  href="{% url 'hrapp:past_program_list' %}"
+  >Past Programs</a
+>
 {% endif %}
 
-<ol class="programs">
+<ol class="programs list-group">
   {% for program in programs %}
-  <li class="program">
+  <li class="program list-group-item">
     <a
       class="program__title"
       href="{% url 'hrapp:program_details' program.id %}"
@@ -16,5 +30,5 @@
   </li>
   {% endfor %}
 </ol>
-<a href="{% url 'hrapp:past_program_list' %}">Past Programs</a>
+
 {% endblock content %}

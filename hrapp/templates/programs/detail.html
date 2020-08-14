@@ -1,37 +1,41 @@
 {% extends 'shared/base.html' %} {% block content %}
 
-<section id="program-details">
-  <h1>{{ program.title }}</h1>
-  <div>Start Date: {{program.start_date}}</div>
-  <div>End Date: {{program.end_date}}</div>
-  <div>Available Seats: {{program.capacity}}</div>
-  <h3>Attendees</h3>
-  <div>
-    {% if program.employees %}
-    <ol>
-      {% for employee in program.employees %}
-      <li>{{ employee.first_name }} {{ employee.last_name }}</li>
-      {% endfor %}
-    </ol>
-    {% else %}
-    <h4>no attendees</h4>
-    {% endif %}
+<section class="program-details list-group">
+  <div class="list-group-item">
+    <h1>{{ program.title }}</h1>
+    <div>Start Date: {{program.start_date}}</div>
+    <div>End Date: {{program.end_date}}</div>
+    <div>Available Seats: {{program.capacity}}</div>
+    <h3>Attendees</h3>
+    <div>
+      {% if program.employees %}
+      <ol>
+        {% for employee in program.employees %}
+        <li>{{ employee.first_name }} {{ employee.last_name }}</li>
+        {% endfor %}
+      </ol>
+      {% else %}
+      <h4>no attendees</h4>
+      {% endif %}
+    </div>
   </div>
 </section>
 
 {% if request.user.is_superuser %}
-<section>
-  {% if program.end_date >= "2019/01/01"%}
-  <form action="{% url 'hrapp:program_details' program.id %}" method="POST">
-    {% csrf_token %}
-    <input type="hidden" name="actual_method" value="DELETE" />
-    <button>Delete</button>
-  </form>
+<section class="program-details list-group">
+  <div class="list-group-item">
+    {% if program.end_date >= "2019/01/01"%}
+    <form action="{% url 'hrapp:program_details' program.id %}" method="POST">
+      {% csrf_token %}
+      <input type="hidden" name="actual_method" value="DELETE" />
+      <button type="button" class="btn btn-outline-danger">Delete</button>
+    </form>
 
-  <form action="{% url 'hrapp:program_edit_form' program.id %}" method="GET">
-    {% csrf_token %}
-    <button>Edit</button>
-  </form>
-  {% endif %}
+    <form action="{% url 'hrapp:program_edit_form' program.id %}" method="GET">
+      {% csrf_token %}
+      <button type="button" class="btn btn-outline-info">Edit</button>
+    </form>
+    {% endif %}
+  </div>
 </section>
 {% endif %} {% endblock %}

@@ -1,8 +1,8 @@
 {% extends 'shared/base.html' %} {% block content %}
 <h2>Past Programs</h2>
-<ol class="past_programs">
+<ol class="past_programs list-group">
   {% for program in programs %}
-  <li class="past_program">
+  <li class="past_program list-group-item">
     <a
       class="program__title"
       href="{% url 'hrapp:program_details' program.id %}"
