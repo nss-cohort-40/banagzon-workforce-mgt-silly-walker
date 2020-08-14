@@ -2,9 +2,9 @@
 
 {% block content %}
 <h1>Departments: {{ department.name }}</h1>
-<ol>
+<ol class="list_group">
 {% for department in departments %}
-    <li>
+    <li class="list-group-item">
         <a href="{% url 'hrapp:department' department.id %}">
         <p>{{ department.name }}</a></p>
         <p>${{ department.budget }}</p>

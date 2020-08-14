@@ -1,21 +1,24 @@
-{% extends 'shared/base.html' %}
-{% block content %}
-        <section id="computer-details">
-            <h1>{{ computer.make }} {{ computer.model }}</h1>
+{% extends 'shared/base.html' %} {% block content %}
+<section class="computer-details list-group">
+  <div class="list-group-item">
+  <h1>{{ computer.make }} {{ computer.model }}</h1>
 
-            <div>Purchase Date: {{ computer.purchase_date }}</div>
-            <div>Decommission Date: {{ computer.decommission_date }}</div>
-        </section>
+  <div>Purchase Date: {{ computer.purchase_date }}</div>
+  <div>Decommission Date: {{ computer.decommission_date }}</div>
+</section>
 {% if computer.emp_id == NULL and request.user.is_superuser %}
-        <section id="computer-actions" style="display:flex;">
-            <form action="{% url 'hrapp:computer' computer.id %}" method="POST">
-                {% csrf_token %}
-                <input type="hidden" name="actual_method" value="DELETE">
-                <button onclick="return confirm('Are you sure?');">Delete</button>
-            </form>
-        </section>
-{% endif %}
-
-
-{% endblock %}
-
+<section id="computer-actions" style="display: flex;">
+  <form action="{% url 'hrapp:computer' computer.id %}" method="POST">
+    {% csrf_token %}
+    <input type="hidden" name="actual_method" value="DELETE" />
+    <button
+      type="button"
+      class="btn btn-outline-danger"
+      onclick="return confirm('Are you sure?');"
+    >
+      Delete
+    </button>
+  </form>
+</div>
+</section>
+{% endif %} {% endblock %}
