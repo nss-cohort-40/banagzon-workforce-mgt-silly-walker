@@ -61,7 +61,8 @@ def program_details(request, program_id):
         current_program["capacity"] = program[0].capacity
         current_program["employees"] = []
         for program in program:
-            current_program["employees"].append(program.employee)
+            if (program.employee.id is not None):
+                current_program["employees"].append(program.employee)
 
         template_name = 'programs/detail.html'
 

@@ -6,22 +6,32 @@
   <div>End Date: {{program.end_date}}</div>
   <div>Available Seats: {{program.capacity}}</div>
   <h3>Attendees</h3>
-  <ol>
-    {% for employee in program.employees %}
-    <li>{{ employee.first_name }} {{ employee.last_name }}</li>
-    {% endfor %}
-  </ol>
+  <div>
+    {% if program.employees %}
+    <ol>
+      {% for employee in program.employees %}
+      <li>{{ employee.first_name }} {{ employee.last_name }}</li>
+      {% endfor %}
+    </ol>
+    {% else %}
+    <h4>no attendees</h4>
+    {% endif %}
+  </div>
 </section>
 
-<form action="{% url 'hrapp:program_details' program.id %}" method="POST">
-  {% csrf_token %}
-  <input type="hidden" name="actual_method" value="DELETE" />
-  <button>Delete</button>
-</form>
+<section>
+  {% if program.end_date >= "2019/01/01"%}
+  <form action="{% url 'hrapp:program_details' program.id %}" method="POST">
+    {% csrf_token %}
+    <input type="hidden" name="actual_method" value="DELETE" />
+    <button>Delete</button>
+  </form>
 
-<form action="{% url 'hrapp:program_edit_form' program.id %}" method="GET">
-  {% csrf_token %}
-  <button>Edit</button>
-</form>
+  <form action="{% url 'hrapp:program_edit_form' program.id %}" method="GET">
+    {% csrf_token %}
+    <button>Edit</button>
+  </form>
+  {% endif %}
+</section>
 
 {% endblock %}
