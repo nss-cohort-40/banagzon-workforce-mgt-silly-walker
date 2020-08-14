@@ -2,7 +2,9 @@
 
 {% block content %}
 <h1>Computers</h1>
+{% if request.user.is_superuser %}
 <a href="{% url 'hrapp:computer_form' %}">Add Computer to Inventory</a>
+{% endif %}
 <ol class="computers">
 {% for computer in computers %}
     <li>
