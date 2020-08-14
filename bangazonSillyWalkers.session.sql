@@ -83,7 +83,6 @@ select
   e.first_name,
   e.last_name,
   e.department_id
-
 FROM hrapp_employee e
   JOIN hrapp_department ON e.department_id = d.id
 GROUP BY e.last_name;
@@ -102,3 +101,17 @@ FROM hrapp_department d
 INSERT INTO hrapp_employee
 VALUES
   (NULL, "Bob", "Joe", 2020-05-06, 0, 2);
+
+SELECT
+  c.id,
+  c.make,
+  c.model,
+  c.purchase_date,
+  c.decommission_date,
+  ec.employee_id emp_id
+FROM hrapp_computer c
+  LEFT JOIN hrapp_employeecomputer ec on c.id = ec.computer_id;
+
+SELECT
+  u.is_superuser
+FROM auth_user u;
