@@ -1,0 +1,31 @@
+{% extends 'shared/base.html' %} {% block content %}
+<h1>Employees</h1>
+
+<ol class="list_group">
+  {% for employee in employees %}
+  <li class="list-group-item">
+    <a href="{% url 'hrapp:employee' employee.id %}">
+      {{ employee.first_name }} {{ employee.last_name }}</a
+    >
+    <p>Department:&nbsp;{{ employee.department.name }}</p>
+  </li>
+  {% endfor %} {% extends 'shared/base.html' %} {% block content %}
+
+  <h1>Employees</h1>
+
+  {% if request.user.is_superuser %}
+  <a href="{% url 'hrapp:employees_form' %}">Create New Employee</a>
+  {% endif %}
+
+  <ol>
+    {% for employee in employees %}
+    <li>
+      <a href="{% url 'hrapp:employee' employee.id %}">
+        {{ employee.first_name }} {{ employee.last_name }}</a
+      >
+      <p>Department:&nbsp;{{ employee.department.name }}</p>
+    </li>
+    {% endfor %}
+  </ol>
+  {% endblock content %}
+</ol>
