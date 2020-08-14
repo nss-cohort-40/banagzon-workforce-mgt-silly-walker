@@ -3,7 +3,6 @@
 {% if request.user.is_superuser %}
 <a href="{% url 'hrapp:program_form' %}">Create New Program</a>
 {% endif %}
-<a href="{% url 'hrapp:past_program_list' %}">Past Programs</a>
 
 <ol class="programs">
   {% for program in programs %}
