@@ -1,5 +1,15 @@
+<<<<<<< HEAD
 CREATE TABLE "hrapp_employee_training_program" (
 	"id" INTEGER NOT NULL PRIMARY KEY,
+=======
+
+-- SQL to create the join table for Employee Training Programs [start]
+;
+
+CREATE TABLE "hrapp_employee_training_program"
+(
+  "id" INTEGER NOT NULL PRIMARY KEY,
+>>>>>>> master
   "employee_id" INTEGER NOT NULL,
   "trainingprogram_id" INTEGER NOT NULL,
     FOREIGN KEY (`employee_id`) REFERENCES "hrapp_employee"
@@ -8,8 +18,11 @@ CREATE TABLE "hrapp_employee_training_program" (
 (`trainingprogram_id`) REFERENCES "hrapp_program"
 (`Id`)
 );
+-- [END of table creation]
+-- ;
 
-
+-- SQL to create some seed data for assinging training programs and employees
+;
 INSERT INTO hrapp_employee_training_program
   (employee_id, trainingprogram_id)
 VALUES
@@ -35,7 +48,6 @@ INSERT INTO hrapp_employee_training_program
 VALUES
   (2, 2);
 
-
 INSERT INTO hrapp_employee_training_program
   (employee_id, trainingprogram_id)
 VALUES
@@ -44,6 +56,7 @@ INSERT INTO hrapp_employee_training_program
   (employee_id, trainingprogram_id)
 VALUES
   (3, 1);
+<<<<<<< HEAD
 
 
 
@@ -75,3 +88,7 @@ FROM hrapp_computer c
 SELECT
   u.is_superuser
 FROM auth_user u;
+=======
+  -- [END of Seed Data creation]
+  -- ;
+>>>>>>> master
