@@ -1,6 +1,9 @@
 {% extends 'shared/base.html' %} {% block content %}
-<h1>Employees</h1>
 
+<h1>Employees</h1>
+{% if request.user.is_superuser %}
+<a href="{% url 'hrapp:employees_form' %}">Create New Employee</a>
+{% endif %}
 <ol class="list_group">
   {% for employee in employees %}
   <li class="list-group-item">

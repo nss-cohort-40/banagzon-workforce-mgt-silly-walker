@@ -1,51 +1,60 @@
 {% extends 'shared/base.html' %} {% block content %}
 
-<h1>Program List</h1>
-
-{% if program.id is not None %}
-<form action="{% url 'hrapp:program_details' program.id %}" method="post">
-  {% else %}
-  <form action="{% url 'hrapp:program_list' %}" method="post">
-    {% endif %} {% csrf_token %}
-    <fieldset class="form-group">
-      <label for="title">Title: </label>
-      <input id="title" type="text" name="title" value="{{ program.title }}" />
-    </fieldset>
-    <fieldset class="form-group">
-      <label for="start_date">Start Date: </label>
-      <input
-        id="start_date"
-        type="text"
-        name="start_date"
-        value="{{ program.start_date }}"
-      />
-    </fieldset>
-    <fieldset class="form-group">
-      <label for="end_date">End Date: </label>
-      <input
-        id="end_date"
-        type="text"
-        name="end_date"
-        value="{{ program.end_date }}"
-      />
-    </fieldset>
-    <fieldset class="form-group">
-      <label for="capacity">Capacity: </label>
-      <input
-        id="capacity"
-        type="text"
-        name="capacity"
-        value="{{ program.capacity }}"
-      />
-    </fieldset>
+<section class="program-details list-group">
+  <div class="list-group-item">
+    <h1>Program List</h1>
 
     {% if program.id is not None %}
-    <input type="hidden" name="actual_method" value="PUT" />
-    <input type="submit" value="Update" />
-    {% else %}
-    <input type="submit" value="Create" />
-    {% endif %}
-  </form>
+    <form action="{% url 'hrapp:program_details' program.id %}" method="post">
+      {% else %}
+      <form action="{% url 'hrapp:program_list' %}" method="post">
+        {% endif %} {% csrf_token %}
+        <fieldset class="form-group">
+          <label for="title">Title: </label>
+          <input
+            id="title"
+            type="text"
+            name="title"
+            value="{{ program.title }}"
+          />
+        </fieldset>
+        <fieldset class="form-group">
+          <label for="start_date">Start Date: </label>
+          <input
+            id="start_date"
+            type="text"
+            name="start_date"
+            value="{{ program.start_date }}"
+          />
+        </fieldset>
+        <fieldset class="form-group">
+          <label for="end_date">End Date: </label>
+          <input
+            id="end_date"
+            type="text"
+            name="end_date"
+            value="{{ program.end_date }}"
+          />
+        </fieldset>
+        <fieldset class="form-group">
+          <label for="capacity">Capacity: </label>
+          <input
+            id="capacity"
+            type="text"
+            name="capacity"
+            value="{{ program.capacity }}"
+          />
+        </fieldset>
 
-  {% endblock %}
-</form>
+        {% if program.id is not None %}
+        <input type="hidden" name="actual_method" value="PUT" />
+        <input type="submit" value="Update" />
+        {% else %}
+        <input type="submit" value="Create" />
+        {% endif %}
+      </form>
+
+      {% endblock %}
+    </form>
+  </div>
+</section>
