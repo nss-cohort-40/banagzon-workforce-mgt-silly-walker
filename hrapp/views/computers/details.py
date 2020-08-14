@@ -1,5 +1,4 @@
 import sqlite3
-from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
 from django.shortcuts import render, redirect
