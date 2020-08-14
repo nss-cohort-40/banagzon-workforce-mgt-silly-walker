@@ -12,6 +12,13 @@
       <li>{{ program }}</li>
     </ul>
     {% endfor %}
+    <form
+      action="{% url 'hrapp:employees_edit_form' employee.id %}"
+      method="GET"
+    >
+      {% csrf_token %}
+      <button>Edit</button>
+    </form>
   </div>
 </body>
 {% endblock %}
