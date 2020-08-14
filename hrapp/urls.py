@@ -5,6 +5,7 @@ from .views import *
 
 app_name = 'hrapp'
 urlpatterns = [
+    path('login/', login, name='login'),
     path('', home, name='home'),
     path('accounts/', include('django.contrib.auth.urls')),
     path('logout/', logout_user, name='logout'),

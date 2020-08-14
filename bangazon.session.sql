@@ -1,0 +1,1 @@
+DELETE FROM hrapp_employeecomputer;
